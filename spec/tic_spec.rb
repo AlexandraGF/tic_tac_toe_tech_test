@@ -26,13 +26,13 @@ describe TicTacToe do
       expect(game.positions_array.length).to eq(1)
     end
 
-    # it 'turn method reduces number of available fields in a game' do
-    #   player1 = Player.new('Dan')
-    #   player2 = Player.new('Helen')
-    #   game = TicTacToe.new(player1,player2)
-    #   game.turn('x', 0)
-    #   expect(game.tic_array[0]).to eq('x')
-    # end
+    it 'turn method lowers number of available fields in a game' do
+      player1 = Player.new('Dan')
+      player2 = Player.new('Helen')
+      game = TicTacToe.new(player1,player2)
+      game.turn('x', 0)
+      expect(game.available_fields).to eq(8)
+    end
 
   end
 end
