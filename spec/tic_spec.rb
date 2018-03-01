@@ -74,5 +74,15 @@ describe TicTacToe do
       expect(game.turn('x', 0)).to eq("Game over! No one won! Not available spaces to play")
     end
 
+
+    it 'player can not take a taken field' do
+      player1 = Player.new('Dan')
+      player2 = Player.new('Helen')
+      game = TicTacToe.new(player1,player2)
+      game.turn('x', 0)
+      game.turn('o', 1)
+      game.turn('x', 3)
+      expect { game.turn('o', 0) }.to raise_error 'Cannot choose a taken field! Please choose another empty field!'
+    end
   end
 end

@@ -11,10 +11,15 @@ class TicTacToe
   end
 
   def turn(option, position)
+    if @tic_array[position] != 'x' && @tic_array[position] != 'o'
     @tic_array[position] << option
     @positions_array << position
     @available_fields -= 1
     available_space
+    else
+    raise 'Cannot choose a taken field! Please choose another empty field!'
+    end
+
   end
 
   def won
