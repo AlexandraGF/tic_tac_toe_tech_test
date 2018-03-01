@@ -49,8 +49,7 @@ class TicTacToe
   end
 
   def available_space
-    if true
-      @available_fields == 0
+    if @available_fields == 0
       return "Game over! No one won! Not available spaces to play"
     else
     end

@@ -71,8 +71,7 @@ describe TicTacToe do
       game.turn('o', 2)
       game.turn('x', 6)
       game.turn('o', 8)
-      game.turn('x', 0)
-      expect(game.turn('o', 2)).to eq("Game over! No one won! Not available spaces to play")
+      expect(game.turn('x', 0)).to eq("Game over! No one won! Not available spaces to play")
     end
 
   end
