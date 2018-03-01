@@ -14,6 +14,7 @@ class TicTacToe
     @tic_array[position] << option
     @positions_array << position
     @available_fields -= 1
+    available_space
   end
 
   def won
@@ -44,6 +45,14 @@ class TicTacToe
          @tic_array[6] == 'o' && @tic_array[7] == 'o' && @tic_array[8] == 'o'
       return "Game over! #{@player2.name} has won!"
 
+    end
+  end
+
+  def available_space
+    if true
+      @available_fields == 0
+      return "Game over! No one won! Not available spaces to play"
+    else
     end
   end
 
