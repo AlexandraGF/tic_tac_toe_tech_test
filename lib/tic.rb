@@ -6,16 +6,21 @@ class TicTacToe
     @player1 = player1
     @player2 = player2
     @tic_array = ["", "", "", "", "", "", "", "", ""]
-    @positions_array = []
+    # @positions_array = []
     @available_fields = 9
   end
 
   def turn(option, position)
     if @tic_array[position] != 'x' && @tic_array[position] != 'o'
     @tic_array[position] << option
-    @positions_array << position
+    # @positions_array << position
     @available_fields -= 1
-    available_space
+    # available_space
+    if @available_fields == 0
+      return "Game over! No one won! Not available spaces to play"
+    else
+    end
+    
     else
     raise 'Cannot choose a taken field! Please choose another empty field!'
     end
@@ -53,11 +58,11 @@ class TicTacToe
     end
   end
 
-  def available_space
-    if @available_fields == 0
-      return "Game over! No one won! Not available spaces to play"
-    else
-    end
-  end
+  # def available_space
+  #   if @available_fields == 0
+  #     return "Game over! No one won! Not available spaces to play"
+  #   else
+  #   end
+  # end
 
 end
