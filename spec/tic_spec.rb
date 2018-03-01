@@ -34,5 +34,18 @@ describe TicTacToe do
       expect(game.available_fields).to eq(8)
     end
 
+    it 'full_line method checks if 3 spaces in a row/column/diagonal have the same option x or o' do
+      player1 = Player.new('Dan')
+      player2 = Player.new('Helen')
+      game = TicTacToe.new(player1,player2)
+      game.turn('x', 0)
+      game.turn('0', 1)
+      game.turn('x', 3)
+      game.turn('0', 4)
+      game.turn('x', 6)
+      expect(game.available_fields).to eq(4)
+      expect(game.won).to eq("Game over! Dan has won!")
+    end
+
   end
 end

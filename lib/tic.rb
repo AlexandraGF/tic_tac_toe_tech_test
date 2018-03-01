@@ -16,4 +16,10 @@ class TicTacToe
     @available_fields -= 1
   end
 
+  def won
+    if @tic_array == ["x", "0", "", "x", "0", "", "x", "", ""]
+      "Game over! #{@player1.name} has won!"
+    end
+  end
+
 end
