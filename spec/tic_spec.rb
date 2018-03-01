@@ -1,3 +1,5 @@
+require './lib/tic.rb'
+
 describe Game do
 
   describe 'Game playing: ' do
@@ -6,4 +8,4 @@ describe Game do
       expect(game).to respond_to(:turn).with(2).arguments
     end
   end
-end 
+end
