@@ -34,17 +34,45 @@ describe TicTacToe do
       expect(game.available_fields).to eq(8)
     end
 
-    it 'full_line method checks if 3 spaces in a row/column/diagonal have the same option x or o' do
+    it 'full_line method checks if 3 spaces in a row/column/diagonal have the same option x' do
       player1 = Player.new('Dan')
       player2 = Player.new('Helen')
       game = TicTacToe.new(player1,player2)
       game.turn('x', 0)
-      game.turn('0', 1)
+      game.turn('o', 1)
       game.turn('x', 3)
-      game.turn('0', 4)
+      game.turn('o', 4)
       game.turn('x', 6)
-      expect(game.available_fields).to eq(4)
       expect(game.won).to eq("Game over! Dan has won!")
+    end
+
+    it 'full_line method checks if 3 spaces in a row/column/diagonal have the same option o' do
+      player1 = Player.new('Dan')
+      player2 = Player.new('Helen')
+      game = TicTacToe.new(player1,player2)
+      game.turn('x', 0)
+      game.turn('o', 1)
+      game.turn('x', 3)
+      game.turn('o', 4)
+      game.turn('x', 5)
+      game.turn('o', 7)
+      expect(game.won).to eq("Game over! Helen has won!")
+    end
+
+    it 'available_space method checks if there is any available fields to play' do
+      player1 = Player.new('Dan')
+      player2 = Player.new('Helen')
+      game = TicTacToe.new(player1,player2)
+      game.turn('x', 5)
+      game.turn('o', 4)
+      game.turn('x', 7)
+      game.turn('o', 3)
+      game.turn('x', 1)
+      game.turn('o', 2)
+      game.turn('x', 6)
+      game.turn('o', 8)
+      game.turn('x', 0)
+      expect(game.won).to eq("Game over! No one won! Not available spaces to play")
     end
 
   end

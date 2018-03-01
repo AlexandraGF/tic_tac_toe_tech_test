@@ -17,8 +17,33 @@ class TicTacToe
   end
 
   def won
-    if @tic_array == ["x", "0", "", "x", "0", "", "x", "", ""]
-      "Game over! #{@player1.name} has won!"
+    full_line
+  end
+
+  private
+
+  def full_line
+    case
+    when @tic_array[0] == 'x' && @tic_array[3] == 'x' && @tic_array[6] == 'x',
+         @tic_array[1] == 'x' && @tic_array[4] == 'x' && @tic_array[7] == 'x',
+         @tic_array[2] == 'x' && @tic_array[5] == 'x' && @tic_array[8] == 'x',
+         @tic_array[2] == 'x' && @tic_array[4] == 'x' && @tic_array[6] == 'x',
+         @tic_array[0] == 'x' && @tic_array[4] == 'x' && @tic_array[8] == 'x',
+         @tic_array[0] == 'x' && @tic_array[1] == 'x' && @tic_array[2] == 'x',
+         @tic_array[3] == 'x' && @tic_array[4] == 'x' && @tic_array[5] == 'x',
+         @tic_array[6] == 'x' && @tic_array[7] == 'x' && @tic_array[8] == 'x'
+      return "Game over! #{@player1.name} has won!"
+
+    when @tic_array[0] == 'o' && @tic_array[3] == 'o' && @tic_array[6] == 'o',
+         @tic_array[1] == 'o' && @tic_array[4] == 'o' && @tic_array[7] == 'o',
+         @tic_array[2] == 'o' && @tic_array[5] == 'o' && @tic_array[8] == 'o',
+         @tic_array[2] == 'o' && @tic_array[4] == 'o' && @tic_array[6] == 'o',
+         @tic_array[0] == 'o' && @tic_array[4] == 'o' && @tic_array[8] == 'o',
+         @tic_array[0] == 'o' && @tic_array[1] == 'o' && @tic_array[2] == 'o',
+         @tic_array[3] == 'o' && @tic_array[4] == 'o' && @tic_array[5] == 'o',
+         @tic_array[6] == 'o' && @tic_array[7] == 'o' && @tic_array[8] == 'o'
+      return "Game over! #{@player2.name} has won!"
+
     end
   end
 
