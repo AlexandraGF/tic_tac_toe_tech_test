@@ -18,13 +18,13 @@ describe TicTacToe do
       expect(game.tic_array[0]).to eq('x')
     end
 
-    it 'turn method adds the player position in the positions_array' do
-      player1 = Player.new('Dan')
-      player2 = Player.new('Helen')
-      game = TicTacToe.new(player1,player2)
-      game.turn('x', 0)
-      expect(game.positions_array.length).to eq(1)
-    end
+    # it 'turn method adds the player position in the positions_array' do
+    #   player1 = Player.new('Dan')
+    #   player2 = Player.new('Helen')
+    #   game = TicTacToe.new(player1,player2)
+    #   game.turn('x', 0)
+    #   expect(game.positions_array.length).to eq(1)
+    # end
 
     it 'turn method lowers number of available fields in a game' do
       player1 = Player.new('Dan')
@@ -42,8 +42,8 @@ describe TicTacToe do
       game.turn('o', 1)
       game.turn('x', 3)
       game.turn('o', 4)
-      game.turn('x', 6)
-      expect(game.won).to eq("Game over! Dan has won!")
+      # game.turn('x', 6)
+      expect(game.turn('x', 6)).to eq("Game over! Dan has won!")
     end
 
     it 'full_line method checks if 3 spaces in a row/column/diagonal have the same option o' do
@@ -55,8 +55,7 @@ describe TicTacToe do
       game.turn('x', 3)
       game.turn('o', 4)
       game.turn('x', 5)
-      game.turn('o', 7)
-      expect(game.won).to eq("Game over! Helen has won!")
+      expect(game.turn('o', 7)).to eq("Game over! Helen has won!")
     end
 
     it 'available_space method checks if there is any available fields to play' do
@@ -82,7 +81,7 @@ describe TicTacToe do
       game.turn('x', 0)
       game.turn('o', 1)
       game.turn('x', 3)
-      expect { game.turn('o', 0) }.to raise_error 'Cannot choose a taken field! Please choose another empty field!'
+      expect{ game.turn('o', 0) }.to raise_error 'Cannot choose a taken field! Please choose another empty field!'
     end
   end
 end
